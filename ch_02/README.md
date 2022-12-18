@@ -1,7 +1,9 @@
 # Ch 02
 
 - `cargo new` to generate project template.
-- `println!` to print message
+- `println!` to print message in std out.
+- `eprintln!` to print message in std err.
+- `format!` to generate a String for specific format.
 - binary in `target` folder
   - `debug`
   - `release`
@@ -31,3 +33,15 @@
 ## cargo
 
 use `[workspace]` to put multiple projects into one folder. see __ch_02/Cargo.toml__
+
+## reference
+
+- `&`: borrow reference, it will not effect owner relation.
+- `*`: de-reference.
+
+`&String` auto-convert to `&str`.
+
+## Result
+
+- `Ok(v)` and `Err(e)`
+- `expect`: return value or exit program.
