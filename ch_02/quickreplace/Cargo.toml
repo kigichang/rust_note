@@ -1,11 +1,10 @@
 [package]
-name = "mandelbrot"
+name = "quickreplace"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-num = "0.4"
-image = "0.13.0"
-crossbeam = "0.8"
+text-colorizer = "1"
+regex = "1"

@@ -4,5 +4,6 @@ members = [
     "hello",
     "gcd",
     "actix-gcd",
-    "mandelbrot"
+    "mandelbrot",
+    "quickreplace",
 ]

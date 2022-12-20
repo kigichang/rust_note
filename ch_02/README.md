@@ -4,6 +4,8 @@
 - `println!` to print message in std out.
 - `eprintln!` to print message in std err.
 - `format!` to generate a String for specific format.
+- `vec!` to generate vector.
+  - `vec![v;n]`: v for value, n for size.
 - binary in `target` folder
   - `debug`
   - `release`
@@ -90,3 +92,7 @@ The `str` type, also called a __'string slice'__, is the most primitive string t
 ## Cast
 
 - `as type`: `100 as f64`
+
+## Debug
+
+- `#[derive(Debug)]` for `{:?}` in `println!`.
