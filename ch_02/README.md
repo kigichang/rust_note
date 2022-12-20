@@ -31,6 +31,7 @@
 ## import package
 
 - `use` to import package.
+- can declare `use` in/out function block.
 
 ## cargo
 
