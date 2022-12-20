@@ -96,3 +96,7 @@ The `str` type, also called a __'string slice'__, is the most primitive string t
 ## Debug
 
 - `#[derive(Debug)]` for `{:?}` in `println!`.
+
+## Error Handle
+
+- `?`: early return if Result is Err, or unwrap value.
