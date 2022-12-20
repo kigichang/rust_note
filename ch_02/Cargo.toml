@@ -3,5 +3,6 @@
 members = [
     "hello",
     "gcd",
-    "actix-gcd"
+    "actix-gcd",
+    "mandelbrot"
 ]

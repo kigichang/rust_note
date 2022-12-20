@@ -45,3 +45,48 @@ use `[workspace]` to put multiple projects into one folder. see __ch_02/Cargo.to
 
 - `Ok(v)` and `Err(e)`
 - `expect`: return value or exit program.
+
+## Closure
+
+- `|args| {}`
+
+## raw string
+
+`r#""#`
+
+## packages
+
+- actix: web
+- serde: serialize and de-serialize
+- num: math complex
+- image: write image
+
+## Comment for Documation
+
+- `///`
+
+## Option
+
+- `Some(T)`
+- `None`
+
+## for-loop
+
+- `for i in 0..limit`: start with 0 and up to (but not including) limit.
+- `for i in 0..=limit`: start with 0 and up to (and including) limit.
+
+## Tuple
+
+- `(T1, T2, ...)`
+- `tuple.0` as first element, and so on.
+
+## str
+
+The `str` type, also called a __'string slice'__, is the most primitive string type. It is usually seen in its borrowed form, `&str`. It is alos the type of string literals, `&'static str`.
+
+- `s[..index]`: start with 0 and up to (but not including) index
+- `s[index+1..]`: start with index + 1, (index+1) must be <= length.
+
+## Cast
+
+- `as type`: `100 as f64`
