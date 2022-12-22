@@ -1,4 +1,4 @@
-# Ch 03
+# Ch03 Fundamental Types
 
 - __char__ is __32__ bit unicode character.
 - tuple: mix types `(T1, T2, ...)`

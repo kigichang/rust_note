@@ -1,4 +1,4 @@
-# Ch 02
+# Ch02 A Tour of Rust
 
 - `cargo new` to generate project template.
 - `println!` to print message in std out.
