@@ -1,0 +1,1 @@
+https://medium.com/@TechSavvyScribe/rust-using-raw-pointers-and-transmute-b3c437c4c9ac
