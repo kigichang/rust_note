@@ -1,4 +1,4 @@
-# Learning Rust from Go
+# Rust Note
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=3 orderedList=false} -->
 
@@ -8,7 +8,7 @@
 - [開發環境](#開發環境)
 - [主要學習資源](#主要學習資源)
 - [Rust 基礎說明](#rust-基礎說明)
-- [多執行緒](#多執行緒)
+- [非同步與多執行緒](#非同步與多執行緒)
 - [實作應用](#實作應用)
 - [進階應用](#進階應用)
 - [參考資料](#參考資料)
@@ -19,13 +19,13 @@
 
 ## 前言
 
-第一次使用 Rust 是在改寫區塊鏈 Side Project。主要是利用 [Hyperledger Sawtooth](https://www.hyperledger.org/use/sawtooth)，原先使用 Go，後來改用 Rust。發現 Rust 的速度有比較快，但不好學。這二、三年來斷斷續續重頭學習，也一直沒有好好整理。
+第一次使用 Rust 是在改寫區塊鏈 Side Project。主要是利用 [Hyperledger Sawtooth](https://github.com/splintercommunity/sawtooth-core/)，原先使用 Go，後來改用 Rust。發現 Rust 的速度有比較快，但不好學。這二、三年來斷斷續續重頭學習，也一直沒有好好整理。最近又再重頭學習一次，並且把公司內原本 CGO 的函式庫，用 Rust 重做一次後，對 Rust 又更熟悉；打鐵趁熱，趕緊記錄這次學習的過程與相關實作細節。
 
-最近又再重頭學習一次，並且把公司內原本 CGO 的函式庫，用 Rust 重做一次後，比較有心得。Rust 使用上與 Scala 有很多雷同的地方，目前筆者主要以 Go 開發，因此以 Go 與 Scala 的經驗，來記錄 Rust 的學習筆記。
+與 Go 相比，Rust 相對比較像 Scala。目前筆者主要以 Go 開發；之前因工作關係，用 Scala 開發推薦系統，所以筆者有 Go 與 Scala 實作經驗。這次學習筆記，就以 Go 與 Scala 為基礎，來記錄 Rust 的學習筆記。
 
 ## 開發環境
 
-- Rust 版本: 1.76.0
+- Rust 版本: 1.77.1
 - 開發環境: Mac OS (arm64)
 - 開發工具: [VSCode](https://code.visualstudio.com/)
 - 文件使用 [Markdown Preview Enhanced](https://github.com/shd101wyy/markdown-preview-enhanced) 撰寫，請安裝完環境後再閱讀。
@@ -100,10 +100,11 @@
     - From / Into
     - Operator Overloading
 
-- [11 Cargo and Crates](11_cargo_and_crates.md)
-  1. crates
-  1. cargo
-  1. cross compile
+- [11 Error Handling](11_error_handling.md)
+  - Option
+  - Result
+    - Result and Main
+    - Early Return
 
 - [12 Common Collections](12_common_collections.md)
   1. vector
@@ -111,30 +112,29 @@
   1. map
   1. set
 
-- [13 Error Handling](13_error_handling.md)
-  1. panic
-  1. result
-  1. catching errors and error propagation.
+- [13 Iteration and Clousure](13_iteration_and_clousure.md)
+  1. iterator
+  1. clousure
 
-- [14 Testing](14_testing.md)
+- [14 Cargo and Crates](14_cargo_and_crates.md)
+  1. crates
+  1. cargo
+  1. cross compile
+
+- [15 Testing](15_testing.md)
   1. unit test
   1. integration test
   1. test private function
 
-- [15 Iteration and Clousure](15_iteration_and_clousure.md)
-  1. iterator
-  1. clousure
-
-- [16 Pointers](16_pointers.md)
+- [16 Box and Rc](16_box_and_rc.md)
   1. Box and Dereferencing
   1. Rc and Arc
-  1. Cell and RefCell
 
 - [17 Macros](17_macros.md)
 
-- [18 Unsafe](18_unsafe.md)
+- [18 Unsafe and FFI](18_unsafe.md)
 
-## 多執行緒
+## 非同步與多執行緒
 
 - [19 Concurrency](19_concurrency.md)
   
@@ -142,22 +142,22 @@
 
 - Arc and Mutex
 - Send and Sync
-- tokio
+
+## 實作應用
+
+- clap: command line argument parser
+- log and log4rs: logging
+- Serde: serialization and deserialization
+  - json
+  - toml
+- tokio: async framework
   - async
   - thread
   - channel
     - select!
   - actor
-
-## 實作應用
-
-- Serde
-  - json
-  - toml
-- clap
-- log and log4rs
-- actix
-- diesel
+- actix: web framework
+- diesel: ORM
 - http client
 - websocket client
 - time package
