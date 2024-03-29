@@ -24,9 +24,9 @@ Ownership 是 Rust 最核心與最重要的特性。簡單來說，擁有者是�
 
 在 Rust 的 Ownership 觀念，主要有三個要點：
 
-1. **Clone**: `Clone` 本身也是 Rust 一種 Trait，主要用來實作複制資料使用。Rust 原生的數值型別都有實作 `Clone` 特性。
-1. **Copy**: `Copy` 本身也是 Rust 一種 Trait。在 Rust 中，常會與 `Clone` 搞混。簡單來說，當某個資料型別實作了 `Copy` 特性時，原變數不會喪失所有權；新的變數，會取得 **Clone** 後的資料。因此，有`Copy` 特性的資料型別，前題是必須實作 `Clone` 特性。Rust 原生的數值型別，都有實作 `Copy` 特性。
-    - `Copy` 的特性，跟 **Copy by Value** 的概念相同，當賦值或傳入函式時，會複製一份資料。
+1. __Clone__: `Clone` 本身也是 Rust 一種 Trait，主要用來實作複制資料使用。Rust 原生的數值型別都有實作 `Clone` 特性。
+1. __Copy__: `Copy` 本身也是 Rust 一種 Trait。在 Rust 中，常會與 `Clone` 搞混。簡單來說，當某個資料型別實作了 `Copy` 特性時，原變數不會喪失所有權；新的變數，會取得 __Clone__ 後的資料。因此，有`Copy` 特性的資料型別，前題是必須實作 `Clone` 特性。Rust 原生的數值型別，都有實作 `Copy` 特性。
+    - `Copy` 的特性，跟 __Copy by Value__ 的概念相同，當賦值或傳入函式時，會複製一份資料。
 1. Move: 如果某個資料型別沒有實作 `Copy` 特性，則當資料型別被賦值給其他變數，或傳入給函式時，原變數會失去所有權。這種特性稱為 Move。
 
 ```rust {.line-numbers}
@@ -390,7 +390,7 @@ where
 
 ### The Static Lifetime
 
-在 Rust 中，有一個特殊的生命週期，稱為 `'static`。`'static` 生命週期是指整個程式的生命週期，通常用在全域變數上。String Literal 都有 `'static` 生命週期 (**All string literals have the 'static lifetime**)，如下：
+在 Rust 中，有一個特殊的生命週期，稱為 `'static`。`'static` 生命週期是指整個程式的生命週期，通常用在全域變數上。String Literal 都有 `'static` 生命週期 (__All string literals have the 'static lifetime__)，如下：
 
 ```rust {.line-numbers}
 let s: &'static str = "hello";
@@ -403,10 +403,10 @@ let s: &'static str = "hello";
 由於 Move, Borrowing, 及 Lifetimes 的特性，會與原 GC 類的程式語言實作方式，有很大的差異，造成用 Rust 實戰時，會處處卡關。以下分享我在實戰上的經驗與實作方式，讓初學者可以更快上手。
 
 - 縮短變數的生命週期，提早釋放記憶體。
-    1. 多利用 **變數 Shadowing** 的特性，縮短已不用的變數生命週期，提早釋放記憶體。
-    1. 多利用 **Scope (作用域)與 Scope 可回傳值** 的特性，儘量縮短變數的生命週期。包含 Mutable Borrowing。如此可以避開 Borrowing 的限制。
+    1. 多利用 __變數 Shadowing__ 的特性，縮短已不用的變數生命週期，提早釋放記憶體。
+    1. 多利用 __Scope (作用域)與 Scope 可回傳值__ 的特性，儘量縮短變數的生命週期。包含 Mutable Borrowing。如此可以避開 Borrowing 的限制。
 
-- 變數儘可能為 **Immutable**，避免 Mutable Borrowing 的問題
+- 變數儘可能為 __Immutable__，避免 Mutable Borrowing 的問題
     1. 以 Functional Programming 的觀念，變數為 immutable，可以避免同一個變數被多個函式同時修改的問題，提高程式碼的穩定度。
     1. 如果一個變數，大多數時間為 immutable，只有少數時間需要修改，可以使用 `Cell` 或 `RefCell` 來達成；如果是多執行緒的情況，則使用 `Mutex` 或 `RwLock`。
 

@@ -236,7 +236,7 @@ assert_eq!(p2.y, 5);
 
 ### Static Method
 
-Rust 與 Scala 相同，可以定義 static method。在 Rust 中，static method 以 `::` 存取。Go 就沒有 static method。**`Self`** 代表目前的型別。
+Rust 與 Scala 相同，可以定義 static method。在 Rust 中，static method 以 `::` 存取。Go 就沒有 static method。__`Self`__ 代表目前的型別。
 
 ```rust {.line-numbers}
 impl Point {
@@ -255,7 +255,7 @@ let p1 = Point::new(20, 30);
 
 ### Immutable and Mutable Reference in Method
 
-Rust 在 Method 使用上，與 Go 相同與 Scala 相同都是以 `.` 呼叫 Method。與一般 OOP 程式語言不同點是，Rust 沒有 **`this`** 這個關鍵字，而是使用 **`&self`** (immutable reference) 或 **`&mut self`** (mutable reference) 來代表目前的實例。
+Rust 在 Method 使用上，與 Go 相同與 Scala 相同都是以 `.` 呼叫 Method。與一般 OOP 程式語言不同點是，Rust 沒有 __`this`__ 這個關鍵字，而是使用 __`&self`__ (immutable reference) 或 __`&mut self`__ (mutable reference) 來代表目前的實例。
 
 ```rust {.line-numbers}
 impl Point {
@@ -284,7 +284,7 @@ p2.move_to(20, 5);
 
 ## More about Ownership
 
-Stuct 的 Method 與 Function 一樣，都是遵循 Mutable 及 Ownership 規則。因此要修改 Struct 的欄位，必須使用 **`&mut self`**。
+Stuct 的 Method 與 Function 一樣，都是遵循 Mutable 及 Ownership 規則。因此要修改 Struct 的欄位，必須使用 __`&mut self`__。
 
 如果 Method 沒有使用 Reference，則會發生 Ownership 轉移，如下：
 
@@ -409,8 +409,8 @@ println!("{:?}", obj);
 1. `Cell` 提供 `replace` 修改 `Cell` 內的值，並回傳舊的值。
 1. `Cell` 特別適用 Rust 數值型別，或有 `Copy` 特性的型別。
 1. `RefCell` 提供 `borrow` 取得 immutable reference 與 `borrow_mut` 取得 mutable reference。
-1. `RefCell` 的 `borrow` 與 `borrow_mut` 亦需遵循 Rust 的 Borrow 規則，否則會發生 **panic**。
-1. `RefCell` 亦提供 `try_borrow` 與 `try_borrow_mut`，可以檢查是否允許借用，避免發生 **panic**。
+1. `RefCell` 的 `borrow` 與 `borrow_mut` 亦需遵循 Rust 的 Borrow 規則，否則會發生 __panic__。
+1. `RefCell` 亦提供 `try_borrow` 與 `try_borrow_mut`，可以檢查是否允許借用，避免發生 __panic__。
 1. `RefCell` 的 `borrow_mut` 可以取得 mutable reference，並修改內容。如：`self.recorder.borrow_mut().push(counter);`。
 1. `RefCell` 也有 `replace` 方法，但是使用 `std::mem::replace` 置換記憶體內容。
 1. `RefCell` 適用在 Vector 這類的資料型別，因為 `RefCell` 可以提供 mutable reference，並修改內容。但數值類型或有 `Copy` 特性的型別，也可使用。

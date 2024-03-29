@@ -16,7 +16,7 @@
 
 <!-- /code_chunk_output -->
 
-Rust 與 Go 在 Slice 使用上，有很大的差異。因此由 Go 轉換到 Rust 時，會需要從源頭的記憶體管理開始思考。
+Rust 與 Go 在 Slice 使用上，有很大的差異。因此由 Go 轉換到 Rust 時，需要多比較兩者的差別。
 
 ## Go Slice
 
@@ -76,13 +76,14 @@ v   v                   v
 
 ![go slice](https://www.plantuml.com/plantuml/dpng/fPAnYiCm38PtFyMt-svmk0ntK-0wzYKCCRGGafAQTD73LmXZ79gf_U633qjWMNYuvxZcyPfZTFwxn7EeJhYaQLf0K0r0qGvJ9_p76w57AFfJbLzhEAUP411CwQXARmsdc2CW7AeEwUjaH-hWZvfM7GWrhJg_Vt9JaNrhKza0vIKRjiXtiIqZ96KgBCgNyYY-blDHOS-7Tmzf7kqpF040)
 
+1. Go 的 Slice 背後都有一個陣列(Array)。
 1. 平時操作 Go 的 Slice，它的本質其實是 `SliceHeader`。只是 Go 不建議直接操作 `SliceHeader`，目前 `SliceHeader` 標示為 `@deprecated`。
-1. `SliceHeader` 內的 `Data` 欄位，記錄 Slice 在資料層的開始位置。
-1. `Len` 與 `Cap` 會依據 Slice 在資料層的開始位置而改變。
+1. `SliceHeader` 內的 `Data` 欄位，記錄 Slice 在所使用陣列內開始位置。
+1. `Len` 與 `Cap` 會依據 Slice 在開始位置而改變。
 
 ## Rust Slice
 
-在 Rust 設計中，Slice 的型別是 `[Type]`，比如以下的 `let hx = h[6..];`，`hx` 的型別是 `[u8]`，但在此會出現編譯錯誤；因為 Rust 編譯器無法在編譯時期得知 `hx` 的長度。所以在 Rust 中，無法宣告一個 Slice 的變數，必須使用 Slice 的參照 `&[Type]`，如 `let h1 = &h[1..5];`。[^unknown_size]
+在 Rust 設計中，Slice 的型別是 `[Type]`，比如以下的 `let hx = h[6..];`，`hx` 的型別是 `[u8]`，但在此時會出現編譯錯誤；因為 Rust 編譯器無法在編譯時期得知 `[u8]` 的記憶體大小，無法儲入 Stack。所以在 Rust 中，無法宣告一個 Slice 型別的變數，必須使用 Slice 的參照 `&[Type]`，如 `let h1 = &h[1..5];`。[^unknown_size]
 
 1. __參照__ 好比 C or Go 的 __Pointer__，Pointer 型別的長度是固定的。
 1. 無法宣告一個資料型別的記憶體用量是不固定的變數。也是就說無法宣告 `let x: [u8]`。

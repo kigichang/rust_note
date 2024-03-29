@@ -20,7 +20,7 @@
 
 ## Flow Control
 
-Rust 與 Go 在語法上類似，但使用上，Rust 的功能比 Go 強大許多，尤其是 `if-else` 上，Go 是 **Statement** 而 Rust 是 **Expression**。**Expression** 可以回傳值，而 **Statement** 不行。**Expression** 的設計，可以彌補在三元運算子上的不足，甚至比三元運算子更好用。
+Rust 與 Go 在語法上類似，但使用上，Rust 的功能比 Go 強大許多，尤其是 `if-else` 上，Go 是 __Statement__ 而 Rust 是 __Expression__。__Expression__ 可以回傳值，而 __Statement__ 不行。__Expression__ 的設計，可以彌補在三元運算子上的不足，甚至比三元運算子更好用。
 
 ### if-else if-else
 

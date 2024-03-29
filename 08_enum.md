@@ -142,7 +142,7 @@ println!("size of Polygon::Rectangle: {}", std::mem::size_of_val(&p2)); // 36
 ```
 
 1. 使用 `std::mem::size_of::<T>` 取得型別 T 的記憶體大小。類似 C 的 `sizeof()`。
-1. `Empty` 是空的 Struct, 使用 **0** byte。
+1. `Empty` 是空的 Struct, 使用 __0__ byte。
 1. `Point` 的大小是 8 bytes，因為 `i32` 是 4 bytes，有兩個 `i32` 組成。
 1. `Triangle` 的大小是 24 bytes，因為有三個 `Point`。
 1. `Rectangle` 的大小是 32 bytes，因為有四個 `Point`。
@@ -152,7 +152,7 @@ println!("size of Polygon::Rectangle: {}", std::mem::size_of_val(&p2)); // 36
 
 如果 Enum 不指定型別時，會預設是 u8；也可以使用 `#[repr()]` 來指定型別，如: `#[repr(i32)]`。
 
-如果 Enum 不指定值時，會從 **0** 開始遞增。也可以使用 `=` 指定值。
+如果 Enum 不指定值時，會從 __0__ 開始遞增。也可以使用 `=` 指定值。
 
 以上方式，很適用於系統狀態值的設計。
 
@@ -223,8 +223,8 @@ unsafe {
 
 1. 如 `Corner`，不指定資料型別時，記憶體使用 1 byte。
 1. `Corner` 的值是從 0 開始遞增。
-1. `Direction` 使用 `#[repr(i32)]` 指定型別是 **i32**，記憶體使用 4 bytes。
-1. `Direction` 中的第一個值 `Up` 指定為 **3**，因此從 **3** 開始遞增。
+1. `Direction` 使用 `#[repr(i32)]` 指定型別是 __i32__，記憶體使用 4 bytes。
+1. `Direction` 中的第一個值 `Up` 指定為 __3__，因此從 __3__ 開始遞增。
 1. Rust Enum 賦值的行為，與 Go 的 `iota` 類似。
 1. `unsafe` 同 Go 的用法，Scope 內的程式碼，在編譯時不會做有關安全性的檢查，等同需要自行保證安全性。
 1. `std::mem::transmute` 是將型別轉換成另一種型別的函式，是 unsafe 操作。

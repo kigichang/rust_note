@@ -84,7 +84,7 @@ let e = b'A'; // byte (u8 only)
 | 宣告但不使用 | 會警告，可用 wildcard `_` 來忽略。 | 會編譯錯誤，可利用 `var _ = x` 來避開。 |
 | 可變性 | 需用 `mut` 指定可變 | 除 `const` 外，預設可變 |
 | 數值運算 | 有支援 overflow 檢查 | 不支援 overflow 檢查 |
-| 函式 | 支援. eg: `(-8.0_f64).abs()` | 不支援. `Math.Abs(-8.0)` |
+| 方法(Method) | 支援. eg: `(-8.0_f64).abs()` | 不支援. `Math.Abs(-8.0)` |
 
 當變數宣告後，沒有被使用時，Rust 會警告，可以在變數前加 __`_`__ wildcard 來處理，但 Go 會編譯錯誤，需用 `var _ = x` 來忽略。
 
@@ -96,7 +96,7 @@ let _z = 15;
 
 ## Immutable & Mutable
 
-與 Scala(Functional Lanagure 設計) 同，variables 與 function parameters 都是 Immutable，若要變成 Mutable，需用 `mut` 關鍵字指定。
+與 Scala (Functional Language 設計) 同，變數與函式(Function)/方法(Method)的參數都是 __Immutable__ ，若要變成 Mutable，需用 `mut` 關鍵字指定。
 
 ```rust {.line-numbers}
 let x = 5;

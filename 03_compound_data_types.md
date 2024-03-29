@@ -16,9 +16,7 @@
 
 ## 前言
 
-Rust 資料型別，其實與 Scala 非常相似。
-
-Compund Data Types 有三種：
+Rust 資料型別，其實與 Scala 非常相似。Compund Data Type 有三種：
 
 - Tuple
 - Array
@@ -26,7 +24,7 @@ Compund Data Types 有三種：
 
 ## Tuple
 
-Rust 與 Scala 都有完整 Tuple 設計，Go 在這方面相對較弱。Tuple 是一種複合型別，可以包含不同型別的元素，並且 Tuple 的長度是固定的。
+Rust 與 Scala 都有完整 Tuple 設計，Go 在這方面相對較弱。Tuple 是一種複合型別，可以包含不同型別的元素，並且 Tuple 的長度是固定的，即宣告後，無法再改變其長度。
 
 ```rust {.line-numbers}
 fn main() {
@@ -54,7 +52,7 @@ Tuple 常用的情境：
 
 ## Array
 
-Array 是一種複合型別，可以包含相同型別的元素，並且 Array 的長度是固定的。在 Go 下，絕大部分的時間，都是在操作 Slice，並不會直接操作到 Array，因此會有 Array 與 Slice 是同類型的誤解。由於 Rust 的記憶體管理機制，Array 與 Slice 在實作上，會有需要特別留意。(Slice 後面會再說明)
+Array 是一種複合型別，只可包含相同型別的元素，並且 Array 的長度是固定的。在 Go 下，絕大部分的時間，都是在操作 Slice，並不會直接操作到 Array，因此會有 Array 與 Slice 是同類型的誤解。由於 Rust 的記憶體管理機制，Array 與 Slice 在實作上，會有需要特別留意。(Slice 後面會再說明)
 
 ```rust {.line-numbers}
 fn main() {
