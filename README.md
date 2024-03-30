@@ -12,7 +12,7 @@
 - [實作應用](#實作應用)
 - [進階應用](#進階應用)
 - [參考資料](#參考資料)
-  - [crates](#crates)
+  - [Projects and Crates](#projects-and-crates)
   - [其他資源](#其他資源)
 
 <!-- /code_chunk_output -->
@@ -173,7 +173,7 @@
 
 以下是我學 Rust 過程，記錄下來的一些資源，供大家參考。
 
-### crates
+### Projects and Crates
 
 - [Awesome Rust](https://github.com/rust-unofficial/awesome-rust)
 - [clap](https://github.com/clap-rs/clap)
@@ -183,6 +183,20 @@
 - [redis-rs](https://github.com/redis-rs/redis-rs)
 - [tonic](https://github.com/hyperium/tonic)
 - [gRPC-rs](https://github.com/tikv/grpc-rs)
+- [AutoCxx](https://google.github.io/autocxx/)
+- [r2d2](https://github.com/sfackler/r2d2)
+- [Burn](https://burn.dev/)
+- [Rocket](https://rocket.rs/)
+- [Yew](https://yew.rs/zh-Hant/)
+- [Diesel](https://diesel.rs/)
+- [Official Onnx Runtime](https://github.com/microsoft/onnxruntime/tree/main/rust)
+- [Ort](https://ort.pyke.io/introduction)
+- [Tch-rs](https://github.com/LaurentMazare/tch-rs)
+- [Tensorflow Rust](https://github.com/tensorflow/rust)
+- [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers)
+- [HuggingFace Text Generation Interface](https://huggingface.co/docs/text-generation-inference/index)
+- [HuggingFace Candle](https://github.com/huggingface/candle)
+- [PyO3 user guide](https://pyo3.rs/)
 
 ### 其他資源
 
@@ -193,7 +207,6 @@
 - [The bindgen User Guide](https://rust-lang.github.io/rust-bindgen/introduction.html)
 - [The Rust Reference](https://doc.rust-lang.org/reference/introduction.html)
 - [Rust语言圣经(Rust Course)](https://course.rs/about-book.html)
-- [PyO3 user guide](https://pyo3.rs/)
 - [The \`wasm-bindgen\` Guide](https://rustwasm.github.io/wasm-bindgen/introduction.html)
 - [The Rustonomicon](https://doc.rust-lang.org/beta/nomicon/leaking.html)
 - [CXX — safe interop between Rust and C++](https://cxx.rs/index.html)
@@ -202,3 +215,7 @@
 - [Rust语言中文社区](https://rustcc.cn/)
 - [Command Line Applications in Rust](https://rust-cli.github.io/book/index.html)
 - [How to bind (Python + NumPy) with (Rust + Ndarray)](https://itnext.io/how-to-bind-python-numpy-with-rust-ndarray-2efa5717ed21)
+- [Rust fact vs. fiction: 5 Insights from Google's Rust journey in 2022](https://opensource.googleblog.com/2023/06/rust-fact-vs-fiction-5-insights-from-googles-rust-journey-2022.html)
+- [Comprehensive Rust (by Google)](https://google.github.io/comprehensive-rust/)
+- [First Rust Code Shows Up in the Windows 11 Kernel](https://www.thurrott.com/windows/windows-11/282995/first-rust-code-shows-up-in-the-windows-11-kernel)
+- [Rust for Windows](https://github.com/microsoft/windows-rs)

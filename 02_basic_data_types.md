@@ -20,29 +20,31 @@
 
 ## Scalar Data Types
 
-與 Go 相同，提供 integer, float, boolean, char 等資料型別，也有 `+`, `-`, `*`, `/`, `%`, `&`, `|`, `^`, `!`, `<<`, `>>` 等運算；但本質與使用上，差異頗大，Rust 的 Scalar Data Types 使用上，比較像 Scala 支援 method。Go 則是 primitive type。
+與 Go 相同，提供 integer, float, boolean, char 等資料型別，也有 `+`, `-`, `*`, `/`, `%`, `&`, `|`, `^`, `!`, `<<`, `>>` 等運算；但本質與使用上，差異頗大，Rust 的 Scalar Data Types 使用上，比較像 Scala[^scala_scalar_type]，支援 method。Go 則是 primitive type。
 
-以下是 Go 與 Rust 型別對照表：
+[^scala_scalar_type]: [Scala Basic Types](https://docs.scala-lang.org/tour/unified-types.html)
 
-| Go | Rust |
+以下是 Rust 與 Go 型別對照表：
+
+| Rust | Go |
 | - | - |
-| int8 | i8 |
-| int16 | i16 |
-| int32 | i32 |
-| int64 | i64 |
-| - | i128 |
-| uint8 | u8 |
-| uint16 | u16 |
-| uint32 | u32 |
-| uint64 | u64 |
-| - | u128 |
-| int | isize |
-| uint| usize |
-| flat32 | f32 |
-| flat64 | f64 |
+| i8 | int8 |
+| i16 | int16 |
+| i32 | int32 |
+| i64 | int64 |
+| i128 | - |
+| u8 | uint8 |
+| u16 | uint16 |
+| u32 | uint32 |
+| u64 | uint64 |
+| u128 | - |
+| isize | int |
+| usize | uint |
+| f32 | float32 |
+| f64 | float64 |
 | bool | bool |
-| byte (uint8) | u8 |
-| rune (int32) | char |
+| u8 | byte (uint8) |
+| char | rune (int32) |
 
 ### 宣告變數
 
@@ -96,7 +98,7 @@ let _z = 15;
 
 ## Immutable & Mutable
 
-與 Scala (Functional Language 設計) 同，變數與函式(Function)/方法(Method)的參數都是 __Immutable__ ，若要變成 Mutable，需用 `mut` 關鍵字指定。
+與 Scala (Functional Language 設計) 同，變數與函式(Function)與方法(Method)的參數都是 __Immutable__ ，若要變成 Mutable，需用 `mut` 關鍵字指定。
 
 ```rust {.line-numbers}
 let x = 5;

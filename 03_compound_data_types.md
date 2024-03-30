@@ -16,7 +16,7 @@
 
 ## 前言
 
-Rust 資料型別，其實與 Scala 非常相似。Compund Data Type 有三種：
+Rust 資料型別，其實與 Scala 非常相似。複合資料型態 (Compound Data Type) 有三種：
 
 - Tuple
 - Array
@@ -24,7 +24,7 @@ Rust 資料型別，其實與 Scala 非常相似。Compund Data Type 有三種�
 
 ## Tuple
 
-Rust 與 Scala 都有完整 Tuple 設計，Go 在這方面相對較弱。Tuple 是一種複合型別，可以包含不同型別的元素，並且 Tuple 的長度是固定的，即宣告後，無法再改變其長度。
+Rust 與 Scala 都有完整 Tuple 設計，Go 在這方面相對缺乏。Tuple 是一種複合型別，可以包含不同型別的元素，並且 Tuple 的長度是固定的，即宣告後，無法再改變其長度。
 
 ```rust {.line-numbers}
 fn main() {
@@ -46,13 +46,13 @@ fn main() {
 
 Tuple 常用的情境：
 
-1. 懶得宣告 struct，但又想要有 struct 的功能，如自定義 method。此項是 Go 沒有的。
+1. 懶得宣告完整 struct，但又想要有 struct 的功能，如自定義 method。此項是 Go 沒有的。
 1. 回傳多個值。Go 有支援，但會回傳兩個獨立的變數。沒有 struct 的特性。
 1. 搭配解構 (destructuring)，可以快速交換兩個變數的值。
 
 ## Array
 
-Array 是一種複合型別，只可包含相同型別的元素，並且 Array 的長度是固定的。在 Go 下，絕大部分的時間，都是在操作 Slice，並不會直接操作到 Array，因此會有 Array 與 Slice 是同類型的誤解。由於 Rust 的記憶體管理機制，Array 與 Slice 在實作上，會有需要特別留意。(Slice 後面會再說明)
+Array 只可包含相同型別的元素，並且 Array 的長度是固定的。在 Go 下，絕大部分的時間，都是在操作 Slice，並不會直接操作到 Array，因此會有 Slice 即 Array 的誤解。由於 Rust 的記憶體管理機制，Array 與 Slice 在實作上，需要特別留意。(Slice 後面會再說明)
 
 ```rust {.line-numbers}
 fn main() {
@@ -80,8 +80,8 @@ fn main() {
 
 P.S. 在使用 `println!` 時，如果要印出 Array 或 Slice，可以使用 `{:?}` 來印出。
 
-1. `{}` 是指資料型別有實作 `Display` trait。
-1. `{:?}` 是指資料型別有實作 `Debug` trait。
+1. `{}` 是指資料型別有實作 `Display` trait。一般數值型別都有實作 `Display` trait。
+1. `{:?}` 是指資料型別有實作 `Debug` trait。除自定義的 Struct、Enum，大部分的資料型別都有實作 `Debug` trait。
 
 ## Vector
 
