@@ -112,7 +112,7 @@
   1. map
   1. set
 
-- [13 Iteration and Clousure](13_iteration_and_clousure.md)
+- [13 Iteration and Closure](13_iteration_and_closure.md)
   1. iterator
   1. clousure
 
@@ -145,24 +145,23 @@
 
 ## 實作應用
 
-- clap: command line argument parser
-- log and log4rs: logging
-- Serde: serialization and deserialization
+- [clap](clap.md): command line argument parser
+- [serde](serde.md): serialization and deserialization
   - json
   - toml
-- tokio: async framework
+- [log and log4rs](log_and_logrs.md): logging
+- [Actix Web](actix_web.md): web framework
+- [sqlx](sqlx.md): execure sql
+- [Diesel](diesel.md): ORM Framework
+- [tokio](tokio.md): async framework
   - async
   - thread
   - channel
     - select!
   - actor
-- actix: web framework
-- diesel: ORM
-- http client
-- websocket client
-- time package
-  - std::time
-  - chrono
+- [reqwest](reqwest.md): http client
+- [websocket](websocket.md)
+- [chrono](chrono.md): date and time
 
 ## 進階應用
 

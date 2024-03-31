@@ -85,7 +85,7 @@ P.S. 在使用 `println!` 時，如果要印出 Array 或 Slice，可以使用 `
 
 ## Vector
 
-Vector 是 Rust 最常用的資料型別之一。
+Vector 是 Rust 最常用的資料型別之一，行為類似 Array，可以視作可變長度的 Array，提供了許多操作方法，如 `push`, `pop`, `insert`, `remove`, `splice`, `clear` 等等。
 
 ### 產生 Vector
 

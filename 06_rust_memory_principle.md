@@ -140,7 +140,7 @@ Rust 中，如果資料型別沒有 `Copy` 特性時，會經常發生所有權�
 
 ## References and Borrowing
 
-Rust 提供了 Reference (參考) 以及 Borrowing (借用) 的機制，可以避免所有權轉移的問題。Reference 類似 C 的 Pointer 指向某個記憶體位置。Borrowing 則是指使用 Reference 的過程。
+Rust 提供了參考 (Reference ) 以及借用 (Borrowing) 的機制，可以避免所有權轉移的問題。Reference 類似 C 的 Pointer 指向某個記憶體位置。Borrowing 則是指使用 Reference 的過程。
 
 總之，使用 Reference 就不會有 Move 行為發生。
 
@@ -255,7 +255,6 @@ println!("{}", s);
 ```
 
 以上範例，`s1` 的生命週期，只在 `{}` 內，`s` 使用到已經被釋放的記憶體，因此會出現編譯錯誤。
-用 Rust 的好處是使用 Rust 的設計(也可以說是限制)，就可以在編譯時期，找出這種問題。
 
 ### Lifetime Annotation
 
@@ -316,7 +315,7 @@ let s1 = "abc".to_string();
 
 1. `'a` 為 Lifetime Annotation，用來標註 `x` 與 `y` 的生命週期。
 1. 生命週期 `'a` 用法，並非是指定 `x` 與 `y` 有相同的生命週期，初學者常會在此誤解。
-1. 生命週期 `'a` 可以理解是 `x` 與 `y` 在程式邏輯上是有關聯的，而 `'a` 是取 `x` 與 `y` 的交集。
+1. 生命週期 `'a` 可以理解是 `x` 與 `y` 在程式邏輯上是有關聯的，且 `'a` 是取 `x` 與 `y` 的生命週期上的交集。
 1. 在 `longest` 函式中，回傳值的生命週期，會依賴於 `x` 與 `y` 的生命週期。
 1. 上例中的生命週期：`s1` > `s2` > `result`。
 
@@ -425,4 +424,5 @@ Memo:
 
 - `Cell`: 情境如 `let mut x = xxx;` 修改變數指向記憶體。
 - `RefCell`: 情境 `let x = &mut x;` 沒有修改變數指向記憶體，但修改記憶體內容。
-- `Rc` 是用在非多執行緒的情境，`Arc` 是用在多執行緒的情境。
+- `Rc` 是用在 __非多執行緒__ 下的 Reference Counter。
+- `Arc` 是用在 __多執行緒__ 下的 Atomic Reference Counter。

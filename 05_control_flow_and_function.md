@@ -44,7 +44,7 @@ assert_eq!(a, 0);
 
 ### if-let
 
-Rust 支援在 if 中，解構 Option / Result / Enum，達到簡化程式碼的目的。
+Rust 支援在 if 中，解構 Option / Result / Enum 取值，達到簡化程式碼的目的。
 
 ```rust {.line-numbers}
 let pt = Some((10, 20));

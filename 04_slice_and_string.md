@@ -784,4 +784,4 @@ println!("{}", hello.encode_utf16().count()); // 4
 
 - `encode_utf16`: 將字串轉換成 UTF-16。
 
-[^unknown_size]: 在存入 Stack 的資料，都需要是固定 Size，在 Rust 與 Go 的 Slice 中，其實都是不固定的，因此在 Go 的設計中，使用 `SliceHeader` 來操作 Slice；在 Rust 中，使用 Slice 的參照來操作。
+[^unknown_size]: 在存入 Stack 的資料型別，都需要是固定 Size。Rust 與 Go 的 Slice 中，其實都是不固定的，因此在 Go 的設計中，使用 `SliceHeader` 來操作 Slice；在 Rust 中，使用 Slice 的參照來操作。
