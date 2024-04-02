@@ -163,28 +163,38 @@ fn main() {
     //     println!("{:?}", a);
     // }
 
+    // {
+    //     #[derive(Debug)]
+    //     enum Either<L, R> {
+    //         Left(L),
+    //         Right(R),
+    //     }
+
+    //     let a: Either<i32, f64> = Either::Left(10_i32);
+
+    //     match a {
+    //         Either::Left(x) if x > 5 => println!("x: {}", x),
+    //         Either::Left(x) if x < 5 => println!("x: {}", x),
+    //         Either::Left(x) => println!("x: {}", x),
+    //         Either::Right(x) => println!("x: {}", x),
+    //     }
+
+    //     let a: Either<i32, f64> = Either::Right(10.01_f64);
+    //     match a {
+    //         Either::Left(x) if x > 5 => println!("x: {}", x),
+    //         Either::Left(x) if x < 5 => println!("x: {}", x),
+    //         Either::Left(x) => println!("x: {}", x),
+    //         Either::Right(x) => println!("x: {}", x),
+    //     }
+    // }
+
     {
-        #[derive(Debug)]
-        enum Either<L, R> {
-            Left(L),
-            Right(R),
+        fn aa(a: &'static str) -> &'static str {
+            a
         }
 
-        let a: Either<i32, f64> = Either::Left(10_i32);
+        let a = "aa".to_string();
 
-        match a {
-            Either::Left(x) if x > 5 => println!("x: {}", x),
-            Either::Left(x) if x < 5 => println!("x: {}", x),
-            Either::Left(x) => println!("x: {}", x),
-            Either::Right(x) => println!("x: {}", x),
-        }
-
-        let a: Either<i32, f64> = Either::Right(10.01_f64);
-        match a {
-            Either::Left(x) if x > 5 => println!("x: {}", x),
-            Either::Left(x) if x < 5 => println!("x: {}", x),
-            Either::Left(x) => println!("x: {}", x),
-            Either::Right(x) => println!("x: {}", x),
-        }
+        let c = aa(&a);
     }
 }
