@@ -137,11 +137,9 @@
 ## 非同步與多執行緒
 
 - [19 Concurrency](19_concurrency.md)
-  
+  - Arc and Mutex
+  - Send and Sync  
 - [20 Async](20_async.md)
-
-- Arc and Mutex
-- Send and Sync
 
 ## 實作應用
 
