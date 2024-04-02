@@ -8,6 +8,10 @@
 - [let and ref](#let-and-ref)
   - [if let](#if-let)
 - [match](#match)
+  - [Expression and Return Value](#expression-and-return-value)
+  - [use `if` in `match`](#use-if-in-match)
+  - [Destruction](#destruction)
+- [Summary](#summary)
 
 <!-- /code_chunk_output -->
 
@@ -100,6 +104,139 @@ println!("{:?}", p);
 1. 可以加上條件判斷
 
 ```rust {.line-numbers}
+let p = (10, 20);
+if let (5, y) = p {
+    println!("y: {}", y);
+} else if let (x @ 1..=30, _) = p {
+    println!("x: {}", x);
+} else {
+    println!("p: {:?}", p);
+}
+
+let x = Some(10);
+
+if let Some(x @ 20) = x {
+    println!("s: {}", x);
+} else {
+    println!("x: {:?}", x);
+}
 ```
 
+1. 使用 `@` 加上想要判斷的模式 (Pattern)。
+1. `@` 後面可以接 Range 如 `1..=30`，也可以接值。
+
 ## match
+
+Rust 的 `match` 是超強大的 `switch`，可以用來比對資料型別，也可以用來比對值。筆者第一次接觸 `match` 是在 Scala，當時就覺得非常方便。幸好 Rust 也有這項功能。
+
+Rust 的 `match` 比 Scala 更加嚴謹，必須列舉出所有可能的情況，否則編譯器會報錯。剩餘其他的條件，其他程式語言大多使用 `default:`, 在 Rust 使用 `_` 來代表。
+
+```rust
+let a = 10_i32;
+
+match a {
+    1..=9 => println!("1..=9"),
+    10..=20 => println!("10..=20"),
+    _ => println!("default"),
+}
+```
+
+1. 使用 `_` 來代表 `default` 情況。
+
+### Expression and Return Value
+
+Rust `match` 與 `if` 相同都是 `expression` 可以回傳值。
+
+```rust {.line-numbers}
+let a = 10_i32;
+
+let b = match a {
+    a @ 1..=9 => a + 10,
+    a @ 10..=20 => a * 10,
+    a @ _ => a,
+};
+
+println!("{:?}", b); // 100    
+```
+
+### use `if` in `match`
+
+除了 `@` 外，也可以在 `match` 中使用 `if` 來加上條件判斷。
+
+```rust {.line-numbers}
+#[derive(Debug)]
+enum Either<L, R> {
+    Left(L),
+    Right(R),
+}
+
+let a: Either<i32, f64> = Either::Left(10_i32);
+
+match a {
+    Either::Left(x) if x > 5 => println!("x: {}", x),
+    Either::Left(x) if x < 5 => println!("x: {}", x),
+    Either::Left(x) => println!("x: {}", x),
+    Either::Right(x) => println!("x: {}", x),
+}
+
+let a: Either<i32, f64> = Either::Right(10.01_f64);
+match a {
+    Either::Left(x) if x > 5 => println!("x: {}", x),
+    Either::Left(x) if x < 5 => println!("x: {}", x),
+    Either::Left(x) => println!("x: {}", x),
+    Either::Right(x) => println!("x: {}", x),
+}
+```
+
+### Destruction
+
+與 `if-let` 相同，`match` 也可以用來解構資料，並取得內部資料。
+
+```rust {.line-numbers}
+let a = Some("abc".to_string());
+
+match a {
+    Some(x) if x.len() > 5 => println!("x: {}", x),
+    None => println!("None"),
+    _ => println!("x: {}", a.unwrap()),
+}
+
+println!("{:?}", a); // error
+```
+
+修正如下：
+
+```rust {.line-numbers}
+let a = Some("abc".to_string());
+
+match a {
+    Some(ref x) if x.len() > 5 => println!("x: {}", x),
+    None => println!("None"),
+    Some(ref x) => println!("x: {}", x),
+}
+
+println!("{:?}", a);
+```
+
+1. 使用 `ref` 取得內部資料的參考。
+
+或者直接使用參考值，如下：
+
+```rust {.line-numbers}
+let a = Some("abc".to_string());
+
+match &a {
+    Some(x) if x.len() > 5 => println!("x: {}", x),
+    None => println!("None"),
+    Some(x) => println!("x: {}", x),
+}
+
+println!("{:?}", a);
+```
+
+1. 直接使用 `&a` 取得內部資料的參考。
+1. `x` 的資料型別為 `&String`。
+
+## Summary
+
+Rust Pattern 是一個非常強大的功能，可以用來解構資料，也可以用來判斷資料型別。Pattern 詳細使用方法，可以參考官方 [Patterns](https://doc.rust-lang.org/reference/patterns.html#patterns)
